@@ -78,11 +78,6 @@
 
       programs.nixvim = {
       	enable = true;
-
-      	extraPlugins = with pkgs.vimPlugins; [
-      	  vim-nix
-      	  LazyVim
-      	];
       };
 
       programs.git = {
