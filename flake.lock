@@ -118,6 +118,22 @@
         "type": "github"
       }
     },
+    "lazyVimStarter": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696840133,
+        "narHash": "sha256-gE2tRpglA0SxxjGN+uKwkwdR5YurvjVGf8SRKkW0E1U=",
+        "owner": "LazyVim",
+        "repo": "starter",
+        "rev": "92b2689e6f11004e65376e84912e61b9e6c58827",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LazyVim",
+        "repo": "starter",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -210,6 +226,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "lazyVimStarter": "lazyVimStarter",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim"
       }

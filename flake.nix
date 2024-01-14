@@ -12,12 +12,31 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lazyVimStarter = {
-   	  url = "github:LazyVim/starter";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:LazyVim/starter";
+      flake = false;	
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixvim, lazyVimStarter,  ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixvim, lazyVimStarter,  ... }: let
+      # system should match the system you are running on
+      system = "x86_64-linux";
+    in {
+      devShells."${system}".default = let
+        pkgs = import nixpkgs {
+          inherit system;
+        };
+      in pkgs.mkShell {
+        # create an environment with nodejs_18, pnpm, and yarn
+        # packages = with pkgs; [
+        #   nodejs_18
+        #   nodePackages.pnpm
+        #   (yarn.override { nodejs = nodejs_18; })
+        # ];
+
+        shellHook = ''
+        '';
+      };
+  # {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

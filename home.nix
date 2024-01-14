@@ -1,4 +1,4 @@
-{ config, pkgs, nixvim, ... }:
+{ config, lib,  pkgs, nixvim, lazyvim, ... }:
 {
   # imports = [
     # ./sway.nix
@@ -30,9 +30,9 @@
     # users.audisho = { pkgs, ... }: {
       # programs.home-manager.enable = true;
 
-	  imports = [
-	  	nixvim
-	  ];
+	  # imports = [
+	  # 	nixvim
+	  # ];
 
       home = {
         stateVersion = "23.11";
@@ -74,11 +74,20 @@
           slurp
           wdisplays
         ];
+
+        # file."${config.xdg.configHome}/nvim/lua".source = "${lazyvim}/lua";
+
+        activation = {
+          myActivationAction = lib.hm.dag.entryAfter ["writeBoundary"] ''
+          	mkdir -p ${config.xdg.configHome}/nvim
+       	    cp -r ${lazyvim}/* ${config.xdg.configHome}/nvim
+       	  '';
+        };
       };
 
-      programs.nixvim = {
-      	enable = true;
-      };
+      # programs.nixvim = {
+      # 	enable = true;
+      # };
 
       programs.git = {
         enable = true;
@@ -112,10 +121,10 @@
         shell = "/etc/profiles/per-user/audisho/bin/zsh";
       };
 
-      # programs.neovim = {
-      #   enable = true;
-      #   vimAlias = true;
-      # };
+      programs.neovim = {
+        enable = true;
+        vimAlias = true;
+      };
 
       programs.vscode = {
         enable = true;
