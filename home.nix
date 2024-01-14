@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixvim, ... }:
 {
   # imports = [
     # ./sway.nix
@@ -30,6 +30,10 @@
     # users.audisho = { pkgs, ... }: {
       # programs.home-manager.enable = true;
 
+	  imports = [
+	  	nixvim
+	  ];
+
       home = {
         stateVersion = "23.11";
         username = "audisho";
@@ -50,24 +54,18 @@
           discord
           steam-tui
           steamcmd
-          mixxx
-#          mixxx-uaccess
           audacity
           gnome.nautilus
           spotify
           gnome.cheese
-          syncthing
 
           # Sway
           swaylock
-          swayidleln 
+          swayidle 
           wl-clipboard
-          # tofi
           mako
           alacritty
           pavucontrol
-          dbus-sway-environment
-          configure-gtk
           xdg-utils
           glib
           dracula-theme
@@ -76,6 +74,15 @@
           slurp
           wdisplays
         ];
+      };
+
+      programs.nixvim = {
+      	enable = true;
+
+      	extraPlugins = with pkgs.vimPlugins; [
+      	  vim-nix
+      	  LazyVim
+      	];
       };
 
       programs.git = {
@@ -110,10 +117,10 @@
         shell = "/etc/profiles/per-user/audisho/bin/zsh";
       };
 
-      programs.neovim = {
-        enable = true;
-        vimAlias = true;
-      };
+      # programs.neovim = {
+      #   enable = true;
+      #   vimAlias = true;
+      # };
 
       programs.vscode = {
         enable = true;
