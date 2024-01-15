@@ -84,11 +84,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705169127,
-        "narHash": "sha256-j9OEtNxOIPWZWjbECVMkI1TO17SzlpHMm0LnVWKOR/g=",
+        "lastModified": 1705347059,
+        "narHash": "sha256-MSdJZDeyBIjf1SAZ7OvA44b00zUGTrDxkAm9vVR+XRk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f2942f3385f1b35cc8a1abb03a45e29c9cb4d3c8",
+        "rev": "8c3b2a0cab64a464de9e41a470eecf1318ccff57",
         "type": "github"
       },
       "original": {
@@ -118,19 +118,19 @@
         "type": "github"
       }
     },
-    "lazyVimStarter": {
+    "neovimConfig": {
       "flake": false,
       "locked": {
-        "lastModified": 1696840133,
-        "narHash": "sha256-gE2tRpglA0SxxjGN+uKwkwdR5YurvjVGf8SRKkW0E1U=",
-        "owner": "LazyVim",
-        "repo": "starter",
-        "rev": "92b2689e6f11004e65376e84912e61b9e6c58827",
+        "lastModified": 1705355437,
+        "narHash": "sha256-f+CbEyte5zEhZFQ1nfT054gAUG6JBmSeQfaETInsPWY=",
+        "owner": "audishos",
+        "repo": "neovim-config",
+        "rev": "66847702e3e5d480fb680877edecf7a101e223a1",
         "type": "github"
       },
       "original": {
-        "owner": "LazyVim",
-        "repo": "starter",
+        "owner": "audishos",
+        "repo": "neovim-config",
         "type": "github"
       }
     },
@@ -182,11 +182,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1705230083,
-        "narHash": "sha256-X6bKck4awbGTPlZQIFqhrbzGvwzuGTlyUTZiIA85wJI=",
+        "lastModified": 1705268857,
+        "narHash": "sha256-IMaCyPTp5Za0xVUorHRxq39VaUrEDuWA9MbV1z6eHR8=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "563ab0660b318b98775a89333e43edd378f4caa9",
+        "rev": "9e04eb3c3c6fcb6ea31e4d3633ea5fd7378906cb",
         "type": "github"
       },
       "original": {
@@ -226,7 +226,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "lazyVimStarter": "lazyVimStarter",
+        "neovimConfig": "neovimConfig",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim"
       }

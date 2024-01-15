@@ -11,13 +11,13 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lazyVimStarter = {
-      url = "github:LazyVim/starter";
+    neovimConfig = {
+      url = "github:audishos/neovim-config";
       flake = false;	
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixvim, lazyVimStarter,  ... }: let
+  outputs = inputs@{ nixpkgs, home-manager, nixvim, neovimConfig,  ... }: let
       # system should match the system you are running on
       system = "x86_64-linux";
     in {
@@ -52,7 +52,7 @@
             # arguments to home.nix
             home-manager.extraSpecialArgs = {
             	nixvim = nixvim.homeManagerModules.nixvim;
-            	lazyvim = lazyVimStarter;
+            	neovimConfig = neovimConfig;
             };
           }
         ];
